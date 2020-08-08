@@ -80,7 +80,7 @@
     "karma-remap-istanbul": "~0.4.0",
     "ng-packagr": "^3.0.0",
     "popper.js": "^1.14.0",
-    "prismjs": "~1.6.0",
+    "prismjs": "~1.21.0",
     "rxjs": "^6.0.0",
     "ts-node": "~5.0.1",
     "tsickle": ">=0.29.0",
