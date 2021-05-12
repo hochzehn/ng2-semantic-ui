@@ -186,9 +186,13 @@ export class SuiSearch<T> implements AfterViewInit {
     @Input()
     public transitionDuration:number;
 
+    @Input()
+    public enableCaching:boolean = true;
+
     constructor(private _element:ElementRef, renderer:Renderer2, private _localizationService:SuiLocalizationService) {
         this.dropdownService = new DropdownService();
         this.searchService = new SearchService<T, T>();
+        this.searchService.enableCaching = this.enableCaching;
 
         this.onLocaleUpdate();
         this._localizationService.onLanguageUpdate.subscribe(() => this.onLocaleUpdate());

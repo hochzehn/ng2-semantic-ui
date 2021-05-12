@@ -68,6 +68,8 @@ export class SearchService<T, U> {
     private _searchDelayTimeout:number;
     // Provides 'loading' functionality.
     private _isSearching:boolean;
+    // Allows to enable caching so each input will not trigger the lookup callback again
+    public enableCaching:boolean = true;
 
     public get query():string {
         return this._query;
@@ -126,7 +128,7 @@ export class SearchService<T, U> {
             return callback();
         }
 
-        if (this._resultsCache.hasOwnProperty(this._query)) {
+        if (this.enableCaching && this._resultsCache.hasOwnProperty(this._query)) {
             // If the query is already cached, make use of it.
             this._results = this._resultsCache[this._query];
 
